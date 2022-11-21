@@ -45,4 +45,10 @@ public class UsuarioController {
 		BeanUtils.copyProperties(usuario, usuarioAtual, "id");
 		return usuarioRepo.save(usuarioAtual);
 	}
+
+	@DeleteMapping("/usuario/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deletar(@PathVariable Long id) {
+		usuarioRepo.deleteById(id);
+	}
 }

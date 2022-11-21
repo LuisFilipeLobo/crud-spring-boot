@@ -16,10 +16,16 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/api")
 public class UsuarioController {
-	UsuarioService usuarioService;
+	private UsuarioService usuarioService;
+	private UsuarioRepository usuarioRepo;
 
 	@GetMapping("/alunos")
 	public Page<Usuario> listar(Pageable pageable) {
 		return usuarioService.listar(pageable);
+	}
+
+	@GetMapping("/aluno/{id}")
+	public Optional<Usuario> buscar(@PathVariable Long id) {
+		return usuarioRepo.findById(id);
 	}
 }

@@ -3,11 +3,23 @@
 ## <p>Crud básico utilizando Java + Spring Boot</p>
 
 ### <p>Tecnologias usadas:</p>
-### <p>Linguagem:</p>
-<p>Java 11</p>
+- Linguagem:
+  - Java 11
 
-### <p>Framework</p>
-<p>Spring Boot</p>
+- Framework</p>
+  - Spring Boot
 
-### <p>Banco de dados:</p>
-<p>H2</p>
+- Banco de dados:
+  - PostgreSQL (Docker)
+
+## Endpoints
+- Listar [GET]
+  - http://localhost:8080/api/usuarios
+- Buscar [GET]
+  - http://localhost:8080/api/usuario/{id}
+- Adicionar [POST]
+  - http://localhost:8080/api/usuario
+- Atualizar [PUT]
+  - http://localhost:8080/api/usuario/{id}
+- Deletar [DEL]
+  - http://localhost:8080/api/usuario/{id}

@@ -4,6 +4,7 @@ import com.springboot.crud.entities.Usuario;
 import com.springboot.crud.repository.UsuarioRepository;
 import com.springboot.crud.service.UsuarioService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,12 @@ public class UsuarioController {
 	public String adicionarUsuario(@RequestBody Usuario usuario) {
 		usuarioRepo.save(usuario);
 		return usuario.getNome() + " foi adicionado.";
+	}
+
+	@PutMapping("/aluno/{id}")
+	public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
+		Usuario usuarioAtual = usuarioRepo.findById(id).get();
+		BeanUtils.copyProperties(usuario, usuarioAtual, "id");
+		return usuarioRepo.save(usuarioAtual);
 	}
 }

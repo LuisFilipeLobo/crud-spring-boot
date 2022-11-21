@@ -19,26 +19,26 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	private UsuarioRepository usuarioRepo;
 
-	@GetMapping("/alunos")
+	@GetMapping("/usuarios")
 	@ResponseStatus(HttpStatus.OK)
 	public Page<Usuario> listar(Pageable pageable) {
 		return usuarioService.listar(pageable);
 	}
 
-	@GetMapping("/aluno/{id}")
+	@GetMapping("/usuario/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Optional<Usuario> buscar(@PathVariable Long id) {
 		return usuarioRepo.findById(id);
 	}
 
-	@PostMapping("/aluno")
+	@PostMapping("/usuario")
 	@ResponseStatus(HttpStatus.CREATED)
 	public String adicionarUsuario(@RequestBody Usuario usuario) {
 		usuarioRepo.save(usuario);
 		return usuario.getNome() + " foi adicionado.";
 	}
 
-	@PutMapping("/aluno/{id}")
+	@PutMapping("/usuario/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
 		Usuario usuarioAtual = usuarioRepo.findById(id).get();

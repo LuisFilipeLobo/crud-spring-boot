@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	@Query("SELECT obj FROM Usuario obj ORDER BY obj.id ASC")
 	Page<Usuario> listar(Pageable pageable);
+
+	Usuario findByEmail(String email);
 }

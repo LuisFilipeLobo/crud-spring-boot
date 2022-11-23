@@ -49,9 +49,9 @@ public class UsuarioController {
 	@PutMapping("/usuario/{id}")
 	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
 		try {
-			usuarioService.atualizarUsuario(id, usuario);
+			Usuario obj = usuarioService.atualizarUsuario(id, usuario);
 
-			return ResponseEntity.ok(usuario);
+			return ResponseEntity.ok(obj);
 		} catch (ServiceException e) {
 			return ResponseEntity.unprocessableEntity().build();
 		}

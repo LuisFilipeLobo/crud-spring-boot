@@ -35,7 +35,7 @@ public class UsuarioService {
 		return usuarioRepo.save(entity);
 	}
 
-	public void atualizarUsuario(Long id, Usuario entity) {
+	public Usuario atualizarUsuario(Long id, Usuario entity) {
 		Usuario usuarioAtual = usuarioRepo.findById(id).get();
 
 		// Impedir email duplicado
@@ -50,7 +50,7 @@ public class UsuarioService {
 
 		BeanUtils.copyProperties(entity, usuarioAtual, "id");
 
-		usuarioRepo.save(usuarioAtual);
+		return usuarioRepo.save(usuarioAtual);
 	}
 
 	public void deletarUsuario(Long id) {
